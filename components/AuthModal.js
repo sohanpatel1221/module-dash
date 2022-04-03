@@ -76,7 +76,7 @@ const AuthModal = ({ show = false, onClose = () => null }) => {
 			// Perform sign in
 			const { error } = await signIn('email', {
 				redirect: false,
-				callbackUrl: window.location.href,
+				callbackUrl: '/',
 				email,
 			});
 			// Something went wrong
