@@ -4,6 +4,12 @@ import { Box } from '@chakra-ui/react';
 import SimpleSidebar from 'components/Sidebar.tsx';
 import { PrismaClient } from '@prisma/client';
 import { getSession } from 'next-auth/react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+
+import AuthLayout from '/src/layouts/Auth.js';
+import AdminLayout from '/src/layouts/Admin.js';
 
 //must include export async function getServerSideProps to utilize SSR. Data returned from code within here will be used to pre render pages
 // we will have to include logic for fetching data. We can use prisma
@@ -31,11 +37,13 @@ export async function getServerSideProps(context) {
 
 export default function Home(props) {
 	return (
-		<>
-			<SimpleSidebar />
-			<Box bg="tomato" w="100%" p={4} color="white">
-				This is the Box
-			</Box>
-		</>
+		<HashRouter>
+			<Switch>
+				<Route path={`/auth`} component={AuthLayout} />
+				<Route path={`/admin`} component={AdminLayout} />
+				<Route path={`/rtl`} component={RTLLayout} />
+				<Redirect from={`/`} to="/admin/dashboard" />
+			</Switch>
+		</HashRouter>
 	);
 }
