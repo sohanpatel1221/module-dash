@@ -1,6 +1,22 @@
 import Layout from '@/components/Layout';
 import ListingForm from '@/components/ListingForm';
 import axios from 'axios';
+import { getSession } from 'next-auth/react';
+
+export async function getServerSideProps(context) {
+	const session = await getSession(context);
+	if (!session) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		};
+	}
+	return {
+		props: {},
+	};
+}
 
 const Create = () => {
 	// logic to send http post request to server with data

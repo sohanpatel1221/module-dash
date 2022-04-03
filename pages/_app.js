@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import { Toaster } from 'react-hot-toast';
 import { SessionProvider as AuthProvider } from 'next-auth/react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 	// Setting the session prop allows session state to be shared between pages
