@@ -16,38 +16,46 @@
 
 */
 
-import React, { Component } from "react";
-import Chart from "react-apexcharts";
+import React, { Component } from 'react';
+import dynamic from 'next/dynamic';
+
+const Chart = dynamic(() => import('react-apexcharts'), {
+	ssr: false,
+});
+
+//import Chart from 'react-apexcharts';
 
 class BarChart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chartData: [],
-      chartOptions: {},
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			chartData: [],
+			chartOptions: {},
+		};
+	}
 
-  componentDidMount() {
-    const { barChartData, barChartOptions } = this.props;
+	componentDidMount() {
+		const { barChartData, barChartOptions } = this.props;
 
-    this.setState({
-      chartData: barChartData,
-      chartOptions: barChartOptions,
-    });
-  }
+		this.setState({
+			chartData: barChartData,
+			chartOptions: barChartOptions,
+		});
+	}
 
-  render() {
-    return (
-      <Chart
-        options={this.state.chartOptions}
-        series={this.state.chartData}
-        type='bar'
-        width='100%'
-        height='100%'
-      />
-    );
-  }
+	render() {
+		if (typeof window !== 'undefined') {
+			return (
+				<Chart
+					options={this.state.chartOptions}
+					series={this.state.chartData}
+					type="bar"
+					width="100%"
+					height="100%"
+				/>
+			);
+		}
+	}
 }
 
 export default BarChart;
