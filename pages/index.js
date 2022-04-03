@@ -10,6 +10,7 @@ import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import AuthLayout from '/src/layouts/Auth.js';
 import AdminLayout from '/src/layouts/Admin.js';
+import NoSSR from 'react-no-ssr';
 
 //must include export async function getServerSideProps to utilize SSR. Data returned from code within here will be used to pre render pages
 // we will have to include logic for fetching data. We can use prisma
@@ -37,13 +38,8 @@ export async function getServerSideProps(context) {
 
 export default function Home(props) {
 	return (
-		<HashRouter>
-			<Switch>
-				<Route path={`/auth`} component={AuthLayout} />
-				<Route path={`/admin`} component={AdminLayout} />
-				<Route path={`/rtl`} component={RTLLayout} />
-				<Redirect from={`/`} to="/admin/dashboard" />
-			</Switch>
-		</HashRouter>
+		<NoSSR>
+			<AuthLayout />
+		</NoSSR>
 	);
 }
