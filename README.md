@@ -1,3 +1,5 @@
+Attempt at adding chakra-ui dashboard styles: https://demos.creative-tim.com/vision-ui-dashboard-chakra/#/admin/profile
+
 ### 1. Configure your local environment
 
 Create an `.env` file and add the following:
