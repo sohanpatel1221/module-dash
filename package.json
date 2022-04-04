@@ -71,20 +71,19 @@
     "typescript": "4.2.4"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.0",
-    "autoprefixer": "^10.4.2",
-    "eslint": "8.8.0",
-    "eslint-config-next": "12.0.10",
-    "postcss": "^8.4.6",
-    "prisma": "^3.11.1",
-    "tailwindcss": "^3.0.18",
     "@babel/plugin-transform-react-jsx-source": "^7.14.5",
     "@delowar/react-circle-progressbar": "^1.0.0",
+    "autoprefixer": "^10.4.4",
+    "eslint": "8.8.0",
+    "eslint-config-next": "12.0.10",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.9",
-    "prettier": "2.2.1"
+    "postcss": "^8.4.12",
+    "prettier": "2.2.1",
+    "prisma": "^3.11.1",
+    "tailwindcss": "^3.0.23"
   },
   "browserslist": {
     "production": [

@@ -47,8 +47,8 @@ import medusa from 'assets/img/cardimgfree.png';
 import Card from 'components/Card/Card.js';
 import CardBody from 'components/Card/CardBody.js';
 import CardHeader from 'components/Card/CardHeader.js';
-import BarChart from 'components/Charts/BarChart';
-import LineChart from 'components/Charts/LineChart';
+// import BarChart from 'components/Charts/BarChart';
+// import LineChart from 'components/Charts/LineChart';
 import IconBox from 'components/Icons/IconBox';
 import DashboardTableRow from 'components/Tables/DashboardTableRow';
 import TimelineRow from 'components/Tables/TimelineRow';
@@ -525,12 +525,7 @@ export default function Dashboard() {
 								</Text>
 							</Flex>
 						</CardHeader>
-						<Box w="100%" minH={{ sm: '300px' }}>
-							<LineChart
-								lineChartData={lineChartDataDashboard}
-								lineChartOptions={lineChartOptionsDashboard}
-							/>
-						</Box>
+						<Box w="100%" minH={{ sm: '300px' }}></Box>
 					</Card>
 					{/* Active Users */}
 					<Card p="16px">
@@ -544,12 +539,7 @@ export default function Dashboard() {
 									align={{ sm: 'center', md: 'flex-start' }}
 									minH={{ sm: '180px', md: '220px' }}
 									p={{ sm: '0px', md: '22px' }}
-								>
-									<BarChart
-										barChartOptions={barChartOptionsDashboard}
-										barChartData={barChartDataDashboard}
-									/>
-								</Box>
+								></Box>
 								<Flex
 									direction="column"
 									mt="24px"
